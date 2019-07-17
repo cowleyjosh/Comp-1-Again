@@ -112,3 +112,45 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
+
+const createNewArticle = (data) => {
+   const articles = document.querySelector('.articles');
+   const newArticle = document.createElement('div');
+   newArticle.classList.add('article');
+   const newTitle = document.createElement('h2');
+   newTitle.textContent = `${data.title}`;
+   newArticle.appendChild(newTitle);
+   const newDate = document.createElement('p');
+   newDate.classList.add('date');
+   newDate.textContent = `${data.date}`;
+   newArticle.appendChild(newDate);
+   const paraOne = document.createElement('p');
+   paraOne.textContent =  `${data.firstParagraph}`;
+   newArticle.appendChild(paraOne);
+   const paraTwo = document.createElement('p');
+   paraTwo.textContent =  `${data.secondParagraph}`;
+   newArticle.appendChild(paraTwo);
+   const paraThree = document.createElement('p');
+   paraThree.textContent =  `${data.thirdParagraph}`;
+   newArticle.appendChild(paraThree);
+   const newButton = document.createElement('button');
+   newButton.classList.add('expandButton');
+   newButton.textContent = "Expand";
+   newButton.addEventListener('click' , () => {
+    newArticle.classList.toggle('article-open');
+   });
+   newArticle.appendChild(newButton);
+
+   articles.appendChild(newArticle);
+   return newArticle;
+}
+
+// data.forEach((arrayItem)=> {
+// let newArticles = createNewArticle(arrayItem);
+// parent.appendChild(newArticles);
+// })
+
+let newArticles = data.map ( (arrayItem)=> {
+  let createArticle = createNewArticle(arrayItem);
+  return createArticle;
+})

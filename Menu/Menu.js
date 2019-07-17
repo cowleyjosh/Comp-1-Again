@@ -33,3 +33,12 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+
+const createNewMenu= (menuItems) => {
+  const menu = document.querySelector('.menu');
+  const newMenu = document.createElement('div');
+  newMenu.classList.add('menu');
+  const newlist = document.createElement('ul')
+  newList = 
+  newTitle.textContent = `${data.title}`;
+  newArticle.appendChild(newTitle);
